@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/automacao
+    username: automacao_user
+    password: admin
+    driver-class-name: org.postgresql.Driver
+
+  jackson:
+    time-zone: America/Sao_Paulo

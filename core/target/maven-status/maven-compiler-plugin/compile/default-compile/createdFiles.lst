@@ -1,0 +1,15 @@
+br\com\main\control\ControlLogic.class
+br\com\main\io\FieldSimulatorDb.class
+br\com\main\db\TagRepository.class
+br\com\main\tags\InputAddress.class
+br\com\main\tags\InputRegister.class
+br\com\main\tags\Tags.class
+br\com\main\db\TagSchemaInitializer.class
+br\com\main\util\CycleTimer.class
+br\com\main\modbus\ModbusServer.class
+br\com\main\io\FieldSimulator.class
+br\com\main\Main.class
+br\com\main\db\Database.class
+br\com\main\tags\HoldingRegister.class
+br\com\main\tags\CoilAddress.class
+br\com\main\db\TagDataLogger.class
