@@ -1,7 +1,11 @@
+import "./styles/global.css";
+import "./styles/layout.css";
+
 import React, { Component } from "react";
-import TagCard from "./components/TagCard";
-import Lampada from "./components/Lampada";
+import TagCard from "./components/TagCard/TagCard";
+import Lampada from "./components/Lampada/Lampada";
 import { buscarTag } from "./services/api";
+import Topbar from "./components/Topbar/Topbar";
 
 
 const TAGS = [
@@ -60,10 +64,7 @@ class App extends Component {
 
     return (
       <>
-        <header className="topbar">
-          <h2>SUPERVISÓRIO WEB – IHM WEINTEK</h2>
-        </header>
-
+        <Topbar />
         <div className="container">
           <h1>Dashboard Industrial</h1>
 

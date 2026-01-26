@@ -1,3 +1,5 @@
+import "./TagCard.css";
+
 export default function TagCard({ label, valor, unidade }) {
   return (
     <div className="card">
