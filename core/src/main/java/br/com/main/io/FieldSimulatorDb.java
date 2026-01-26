@@ -23,6 +23,12 @@ public class FieldSimulatorDb implements Runnable {
 
         int ligaId = TagRepository.getTagId(
                 CoilAddress.CMD_LIGA.name(), "COIL");
+        int emergenciaId = TagRepository.getTagId(
+                CoilAddress.EMERGENCIA.name(), "COIL");
+        int resetId = TagRepository.getTagId(
+                CoilAddress.RESET_CONTADOR.name(), "COIL");
+        int modoAutoId = TagRepository.getTagId(
+                CoilAddress.MODO_AUTOMATICO.name(), "COIL");
 
         while (true) {
 
@@ -31,11 +37,17 @@ public class FieldSimulatorDb implements Runnable {
             boolean liga = Tags.coil(CoilAddress.CMD_LIGA).isSet();
             int setpoint = Tags.hr(HoldingRegister.SETPOINT).getValue();
             int contador = Tags.hr(HoldingRegister.CONTADOR).getValue();
+            boolean emergencia = Tags.coil(CoilAddress.EMERGENCIA).isSet();
+            boolean reset = Tags.coil(CoilAddress.RESET_CONTADOR).isSet();
+            boolean modoAuto = Tags.coil(CoilAddress.MODO_AUTOMATICO).isSet();
 
             // 🔥 grava SOMENTE se mudar
             TagDataLogger.logIntIfChanged(tempId, temp);
             TagDataLogger.logIntIfChanged(pressaoId, pressao);
             TagDataLogger.logBoolIfChanged(ligaId, liga);
+            TagDataLogger.logBoolIfChanged(emergenciaId, emergencia);
+            TagDataLogger.logBoolIfChanged(resetId, reset);
+            TagDataLogger.logBoolIfChanged(modoAutoId, modoAuto);
             TagDataLogger.logIntIfChanged(setpointId, setpoint);
             TagDataLogger.logIntIfChanged(contadorId, contador);
 

@@ -101,4 +101,19 @@ button:focus-visible {
   color: #94a3b8;
 }
 
+.topbar {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+  text-align: center;
+}
+
+.topbar h2 {
+  margin: 10;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
 }

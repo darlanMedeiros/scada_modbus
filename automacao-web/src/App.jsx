@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import TagCard from "./components/TagCard";
+import Lampada from "./components/Lampada";
 import { buscarTag } from "./services/api";
+
 
 const TAGS = [
   { key: "TEMPERATURA", label: "🌡 Temperatura", unidade: "°C" },
@@ -8,8 +10,10 @@ const TAGS = [
   { key: "SETPOINT", label: "🎯 Setpoint", unidade: "" },
   { key: "CONTADOR", label: "🔢 Contador", unidade: "" },
   { key: "VAZAO", label: "📊 Vazão", unidade: "" },
-  { key: "STATUS", label: "🟢 Status", unidade: "" },
-
+  { key: "CMD_LIGA", label: "🟢 Status", unidade: "" },
+  { key: "EMERGENCIA", label: "🚨 EMERGÊNCIA", unidade: "" },
+  { key: "RESET_CONTADOR", label: "🟢 Reset Contador", unidade: "" },
+  { key: "MODO_AUTOMATICO", label: "🟢 Automático", unidade: "" }
 ];
 
 class App extends Component {
@@ -25,47 +29,73 @@ class App extends Component {
   componentWillUnmount() {
     clearInterval(this.timer);
   }
-
   carregar = async () => {
     const resultado = {};
 
     for (const tag of TAGS) {
       try {
         const data = await buscarTag(tag.key);
-        resultado[tag.key] = data?.valorInt ?? "--";
+
+        // 🔹 Prioridade: boolean > int
+        if (typeof data?.valorBool === "boolean") {
+          resultado[tag.key] = data.valorBool;
+        } else if (typeof data?.valorInt === "number") {
+          resultado[tag.key] = data.valorInt;
+        } else {
+          resultado[tag.key] = "--";
+        }
+
       } catch (error) {
         console.error(`Erro ao buscar ${tag.key}`, error);
-        resultado[tag.key] = "--"; // fallback seguro
+        resultado[tag.key] = "--";
       }
     }
 
     this.setState({ valores: resultado });
   };
 
+
   render() {
     const { valores } = this.state;
 
     return (
-      <div className="container">
-        <h1>Dashboard Industrial</h1>
+      <>
+        <header className="topbar">
+          <h2>SUPERVISÓRIO WEB – IHM WEINTEK</h2>
+        </header>
 
-        <div className="grid">
-          {TAGS.map(tag => (
-            <TagCard
-              key={tag.key}
-              label={tag.label}
-              valor={valores[tag.key] ?? "--"}
-              unidade={tag.unidade}
-            />
-          ))}
+        <div className="container">
+          <h1>Dashboard Industrial</h1>
+
+          <div className="grid">
+            {TAGS.map(tag => {
+              const valor = valores[tag.key];
+
+              if (typeof valor === "boolean") {
+                return (
+                  <Lampada
+                    key={tag.key}
+                    label={tag.label}
+                    ligada={valor}
+                    piscar={tag.key === "EMERGENCIA" && valor === true}
+                  />
+                );
+              }
+
+              return (
+                <TagCard
+                  key={tag.key}
+                  label={tag.label}
+                  valor={valor ?? "--"}
+                  unidade={tag.unidade}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
 
 export default App;
-
-
-
-
