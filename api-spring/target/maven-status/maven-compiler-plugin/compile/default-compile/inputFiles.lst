@@ -1,0 +1,7 @@
+C:\dev\scada_modbus\api-spring\src\main\java\br\com\api\ApiApplication.java
+C:\dev\scada_modbus\api-spring\src\main\java\br\com\api\controller\TagController.java
+C:\dev\scada_modbus\api-spring\src\main\java\br\com\api\dto\HistoricoDto.java
+C:\dev\scada_modbus\api-spring\src\main\java\br\com\api\dto\TagDto.java
+C:\dev\scada_modbus\api-spring\src\main\java\br\com\api\dto\UltimoValorDto.java
+C:\dev\scada_modbus\api-spring\src\main\java\br\com\api\repository\TagRepository.java
+C:\dev\scada_modbus\api-spring\src\main\java\br\com\api\service\TagService.java
