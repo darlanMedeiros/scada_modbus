@@ -21,3 +21,14 @@
 .lampada-texto {
   font-weight: bold;
 }
+
+/* 🔥 PISCA SOMENTE SE A CLASSE EXISTIR */
+.lampada-piscar {
+  animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.2; }
+  100% { opacity: 1; }
+}

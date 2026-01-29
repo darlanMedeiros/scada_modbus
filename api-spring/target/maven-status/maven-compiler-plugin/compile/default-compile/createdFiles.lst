@@ -1,3 +1,4 @@
+br\com\api\bootstrap\CoreBootstrap.class
 br\com\api\service\TagService.class
 br\com\api\dto\HistoricoDto.class
 br\com\api\dto\TagDto.class
