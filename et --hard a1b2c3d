@@ -1,0 +1,16 @@
+[33m800a327[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m testedo docker sem sucesso
+[33md6b11f7[m cria uma unico jar para executar  front e backend tudo no spring boot
+[33m00c9a5f[m integrado core com api-spring e criado jar executável. Corrigido Emergencia piscar
+[33ma329345[m refatorado core sem sucesso
+[33mea00822[m Merge branch 'main' of https://github.com/darlanMedeiros/scada_modbus
+[33m22a3483[m CRIAR BUILD CORE
+[33m4db5db4[m atualizado readme
+[33m7fb9ee4[m testado o mvn clean package no OneDrive sem success
+[33m8328ac9[m Merge branch 'main' of https://github.com/darlanMedeiros/scada_modbus
+[33m0454cfe[m modificação layout classe css
+[33ma2efe7f[m testado build api-spring
+[33m447f1b0[m organizado projeto
+[33m7f7d889[m modificado layout IHM
+[33m29fe4c3[m colocado botões web com animação
+[33ma336220[m unificado projeto
+[33ma632fd8[m Initial commit

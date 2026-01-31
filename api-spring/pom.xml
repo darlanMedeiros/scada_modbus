@@ -52,7 +52,7 @@
         <!-- CORE -->
         <dependency>
             <groupId>br.com.main</groupId>
-            <artifactId>simulador</artifactId>
+            <artifactId>core</artifactId>
             <version>1.0</version>
         </dependency>
 
